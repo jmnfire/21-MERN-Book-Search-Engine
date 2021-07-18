@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+
 import { useMutation } from '@apollo/client';
 import { Form, Button, Alert } from 'react-bootstrap';
 
@@ -32,16 +33,21 @@ const SignupForm = () => {
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    
     try {
       const { data } = await addUser({
         variables: { ...userFormData}
       });
-
+      console.log(data);
       Auth.login(data.addUser.token);
 
     } catch (err) {
       console.error(err);
-      setShowAlert(true);
     }
 
     setUserFormData({
