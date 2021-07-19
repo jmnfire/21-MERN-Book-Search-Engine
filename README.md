@@ -44,7 +44,7 @@ https://github.com/jmnfire
 https://github.com/jmnfire/21-MERN-Book-Search-Engine
 
 ### To access the website via Heroku
-https://enigmatic-beyond-85347.herokuapp.com/
+
 
 ### Email address 
 jovan.m.nixon@gmail.com
